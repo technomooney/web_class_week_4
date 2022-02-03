@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Quiz Game!</title>
+</head>
+<body>
+
+<p>what is the capital of Japan?</p>
+
+<button class="wrong-answer">Osaka （おさか)</button>
+<button id="correct-answer">Tokyo (ときょ)</button>
+<button class="wrong-answer">Kyoto (きょと)</button>
+
+<p id="result"></p>
+
+
+<script>
+    let correctAnswerButton = document.querySelector("#correct-answer")
+    let defaultButtonColor = correctAnswerButton.style.background
+    let result = document.querySelector("#result")
+    console.log(defaultButtonColor)
+    correctAnswerButton.addEventListener("click", function () {
+        result.innerHTML = "Corrent Answer!"
+        correctAnswerButton.style.background = "#c3829e"
+    })
+
+    let wrongAnswerButtons = document.querySelectorAll(".wrong-answer")
+    console.log(wrongAnswerButtons)
+
+    //add listner to both wrong anwser buttons
+    wrongAnswerButtons.forEach(function (wrongAnswerButton) { //essentially a loop
+
+        wrongAnswerButton.addEventListener("click", function () {
+            result.innerHTML = "Wrong Answer, Try again?"
+            correctAnswerButton.style.background = defaultButtonColor
+        })
+
+    })
+
+
+
+</script>
+</body>
+</html>

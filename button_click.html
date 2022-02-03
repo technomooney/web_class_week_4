@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Button Click</title>
+</head>
+<body>
+
+
+<button>DON'T Click Here!</button>
+
+<script>
+    let button = document.querySelector("button");
+
+    button.addEventListener('click', function () {
+        alert("yOu ClIcKeD tHe BuTtOn! HoW dArE yOu!");
+    });
+    button.addEventListener('mouseenter', function () {
+        button.innerHTML = "DON'T CLICK IT!!!";
+        button.style.backgroundColor = "#aa7777";
+    });
+
+    button.addEventListener("mouseleave", function () {
+        button.innerHTML = "DON'T Click Here!";
+        button.style.backgroundColor = "inherit";
+    })
+
+</script>
+</body>
+</html>

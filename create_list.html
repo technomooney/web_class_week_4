@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+<label for="new-text">Enter some text to add to the list. press CTRL+ALT+D to delete the list</label for="new-text"> <br>
+
+<input type="text" id="new-text">
+<button id="add-text-button">Add</button> <br>
+<button id="clear">Clear the list</button>
+
+<ul id="list-of-text"></ul>
+
+<script>
+    let textInput = document.querySelector("#new-text")
+    let addButton = document.querySelector("#add-text-button")
+    let textList = document.querySelector("#list-of-text")
+    let clearListButton = document.querySelector("#clear")
+
+    let elementsInList = 0
+    let maxElements = 10
+
+    //modified this to use the better looking stuff in from the link below.
+    document.addEventListener("keyup",function (event){
+        if (event.key === "Enter") {
+            addButton.click()
+        }
+    })
+
+    // got the way to do this from here:
+    // https://stackoverflow.com/questions/16006583/capturing-ctrlz-key-combination-in-javascript
+
+    document.addEventListener("keydown",function (event) {
+        console.log(event.key)
+        if (event.altKey && event.shiftKey && event.key === "D") {
+            clearListButton.click()
+        }
+
+    })
+
+    addButton.addEventListener("click", function () {
+        if (elementsInList >= maxElements) {
+            alert("No more items can be added!")
+            return
+        }
+        //read the text in the input
+        let newText = textInput.value;
+        if (newText==="") {
+            alert("You need to type text in the box!")
+            return;
+        }
+        // create a new li element
+        let newListItem = document.createElement("li");
+        // the li element text should be the text from the text input
+        newListItem.innerHTML = newText;
+        textList.appendChild(newListItem);
+        //clear the text input
+        textInput.value = ""
+        elementsInList++
+
+    })
+
+    clearListButton.addEventListener("click", function () {
+        textList.innerHTML = ""
+        elementsInList = 0
+    })
+</script>
+
+
+</body>
+</html>

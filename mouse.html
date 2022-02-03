@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Mousing Around</title>
+</head>
+<body>
+
+
+<p id="mouse-me">Move your mouse here!</p>
+
+
+<script>
+    let countMouse = 0;
+
+    let message = document.querySelector("#mouse-me");
+    message.addEventListener("mouseover",function () {
+        countMouse++
+        if (message == 1) {
+            message.innerHTML =  "The mouse has been here " + countMouse + " time!"
+        }
+        else {
+            message.innerHTML = "The mouse has been here " + countMouse + " times"
+        }
+    })
+
+    message.addEventListener("mouseout", function () {
+        message.innerHTML = "Your mouse is NOT over this message"
+
+    })
+
+
+</script>
+
+</body>
+</html>

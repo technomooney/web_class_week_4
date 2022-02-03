@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>Full time or Part time?</title>
+</head>
+<body>
+
+<label for="credit-count">How many credits are you taking this semester?</label> <br>
+
+<!-- there is a bug in firefox that allows text input in number inputs and just sends empty -->
+<!-- strings when invalid data is inserted, and it is read ... it is annoying-->
+<!-- https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/number#using_number_inputs -->
+<input type="number" id="credit-count" required>
+<button id="submit-credits">Enter</button>
+
+<p id="status-message"></p>
+
+
+<script>
+    let submitButton = document.querySelector("#submit-credits");
+    let creditsInput = document.querySelector("#credit-count");
+    let statusMessage = document.querySelector("#status-message");
+
+    submitButton.addEventListener("click", function () {
+        let credits = creditsInput.value;
+
+        if (credits >24) {
+            statusMessage.innerHTML = "You can not have more then 24 credits per semester!"
+        }else if (credits >= 12) {
+            statusMessage.innerHTML = "You are enrolled as a full time student." ;
+        }else if (credits >= 6) {
+            statusMessage.innerHTML = "You are enrolled as a half time student.";
+        } else if (credits === "") {
+            statusMessage.innerHTML = "Invalid number! Please only enter a number!"
+        } else if (credits >= 0) {
+            statusMessage.innerHTML = "You are enrolled less then half time..." ;
+        } else {
+            statusMessage.innerHTML = "Enter a positive number only, please!"
+        }
+    });
+
+</script>
+
+</body>
+</html>
