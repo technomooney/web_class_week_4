@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Club Membership</title>
+    <meta charset="utf-8">
+  <style>
+    .selected {
+      text-decoration: line-through ;
+      font-style: italic;
+      color: gray;
+    }
+
+    input {
+      width: 100%;
+      padding: 5px;
+      margin: 5px 5px 5px 0px;
+      box-sizing: border-box;
+
+    }
+
+  </style>
+
+</head>
+<body>
+<h1>Student Club Roster</h1>
+
+<h2>Add Students</h2>
+
+    <label for="student-name">Student Name</label><input id="student-name" name="student-name">
+    <br>
+    <label for="student-id">Student ID</label><input id="student-id" name="student-id">
+    <br>
+    <label for="student-gpa">Student GPA</label><input id="student-gpa" name="student-gpa" type="number">
+    <br>
+    <button id="add-student">Add Student</button>
+
+    <h2>Student List</h2>
+
+<p>There are
+  <span id="student-count">
+          <!-- use JavaScript to count the number of students, and show here -->
+        </span>
+  student(s) in the club.</p>
+
+
+<ul id="student-list">
+  <!-- use JavaScript to create li elements  -->
+</ul>
+
+<button id="remove-selected-students">Remove selected students</button>
+
+<script src="club_student_roster_manager.js"></script>
+</body>
+</html>

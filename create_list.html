@@ -6,7 +6,7 @@
 </head>
 <body>
 
-<label for="new-text">Enter some text to add to the list. press CTRL+ALT+D to delete the list</label for="new-text"> <br>
+<label for="new-text">Enter some text to add to the list. press CTRL+ALT+D to delete the list</label> <br>
 
 <input type="text" id="new-text">
 <button id="add-text-button">Add</button> <br>
@@ -52,6 +52,11 @@
             alert("You need to type text in the box!")
             return;
         }
+        if (newText.length === 50) {
+            alert("You cant have more then 50 chars in one item!")
+            return;
+        }
+
         // create a new li element
         let newListItem = document.createElement("li");
         // the li element text should be the text from the text input
